@@ -14,10 +14,10 @@ const jwtCheck = auth({
 app.use(express.json())
 
 //Import Router Libros
-const routerLibros = require('./routes/libros')
+const routerLibros = require('./src/routes/libros')
 
 //Import middleware errorHandler
-const errorHandler = require('./middlewares/errorHandler')
+const errorHandler = require('./src/middlewares/errorHandler')
 
 app.use('/api/libros', jwtCheck, routerLibros)
 
@@ -26,3 +26,5 @@ app.use(errorHandler)
 app.listen(port, ()=>{
     console.log("Servidor iniciado")
 })
+
+module.exports = app
